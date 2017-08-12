@@ -27,6 +27,8 @@ public class ConstantsUI {
      */
     public final static int MAIN_WINDOW_X = 240;
     public final static int MAIN_WINDOW_Y = 100;
+    
+    
     public final static int MAIN_WINDOW_WIDTH = 885;
     public final static int MAIN_WINDOW_HEIGHT = 636;
 

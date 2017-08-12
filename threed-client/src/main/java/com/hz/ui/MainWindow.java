@@ -1,6 +1,9 @@
 package com.hz.ui;
 
 import org.apache.log4j.Logger;
+
+import com.hz.ui.panel.ToolBarPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -77,14 +80,14 @@ public class MainWindow {
 
         
         
- 
         
         
         mainPanel = new JPanel(true);
         mainPanel.setBackground(Color.white);
         mainPanel.setLayout(new BorderLayout());
 
- 
+        ToolBarPanel toolbar = new ToolBarPanel();
+        mainPanel.add(toolbar, BorderLayout.WEST);
 
 
         mainPanelCenter = new JPanel(true);
