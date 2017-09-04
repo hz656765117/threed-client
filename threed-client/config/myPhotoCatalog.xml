@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<root>  
+	<type editor="交通工具">  
+	        <typeVale>张三</typeVale>
+	        <typeVale>张三lishi</typeVale>
+	        <typeVale>张三</typeVale>  
+	        <typeVale>张三</typeVale> 
+	</type>  
+	
+	<type editor="植物"> 
+	        <typeVale>张三</typeVale>
+	        <typeVale>张三</typeVale>
+	        <typeVale>张三</typeVale>  
+	        <typeVale>张三</typeVale> 
+	</type>  
+    
+	<type editor="其他"> 
+	        <typeVale>张三 </typeVale>
+	        <typeVale>张三</typeVale>
+	        <typeVale>张三</typeVale>  
+	        <typeVale>张三</typeVale> 
+	</type>  
+ 
+    
+</root>
