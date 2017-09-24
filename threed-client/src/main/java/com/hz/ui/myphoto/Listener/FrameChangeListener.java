@@ -1,6 +1,7 @@
 package com.hz.ui.myphoto.Listener;
 
 import com.hz.ui.myphoto.constants.MyPhotoConstantsUI;
+import com.hz.ui.myphoto.control.AppControl;
 import com.hz.ui.myphoto.panel.CategoryPanel;
 import com.hz.ui.myphoto.panel.MainPanel;
 
@@ -16,17 +17,20 @@ public class FrameChangeListener extends ComponentAdapter {
 
     private JFrame jFrame;
     private java.util.List<JPanel> panels;
+    private String userName;
+    private AppControl appControl;
 
-    public FrameChangeListener(JFrame jFrame, java.util.List<JPanel> panels) {
+    public FrameChangeListener(JFrame jFrame, java.util.List<JPanel> panels,String userName,AppControl appControl) {
+    	this.setUserName(userName);
         this.jFrame = jFrame;
         this.panels = panels;
+        this.appControl=appControl;
     }
 
 
 
     @Override
     public void componentResized(ComponentEvent evt) {
-        System.out.println(panels.size());
         this.jFrame.getContentPane().removeAll();
         try {
             for (JPanel panel: panels) {
@@ -34,7 +38,7 @@ public class FrameChangeListener extends ComponentAdapter {
                 Dimension dimension=evt.getComponent().getSize();
                 switch (panelClass){
                     case "com.hz.ui.myphoto.panel.CategoryPanel":
-                        panel=new CategoryPanel(MyPhotoConstantsUI.CALALOG_WIDTH,dimension.height);
+                        panel=new CategoryPanel(MyPhotoConstantsUI.CALALOG_WIDTH,dimension.height,this.getUserName());
                         this.jFrame.add(panel,"West");
                         break;
                     case "com.hz.ui.myphoto.panel.MainPanel":
@@ -48,4 +52,18 @@ public class FrameChangeListener extends ComponentAdapter {
         }
 
     }
+
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+    
+    
 }

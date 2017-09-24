@@ -1,25 +1,93 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-<root>  
-	<type editor="交通工具">  
-	        <typeVale>张三</typeVale>
-	        <typeVale>张三lishi</typeVale>
-	        <typeVale>张三</typeVale>  
-	        <typeVale>张三</typeVale> 
-	</type>  
-	
-	<type editor="植物"> 
-	        <typeVale>张三</typeVale>
-	        <typeVale>张三</typeVale>
-	        <typeVale>张三</typeVale>  
-	        <typeVale>张三</typeVale> 
-	</type>  
-    
-	<type editor="其他"> 
-	        <typeVale>张三 </typeVale>
-	        <typeVale>张三</typeVale>
-	        <typeVale>张三</typeVale>  
-	        <typeVale>张三</typeVale> 
-	</type>  
- 
-    
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <type editor="全部模型分类" editorId="1" editorAll="全部模型分类"> 
+    <typeVale editor="沙发" editorId="10" editorAll="沙发">沙发</typeVale>  
+    <typeVale editor="桌台" editorId="11" editorAll="桌台">桌台</typeVale>  
+    <typeVale editor="椅子" editorId="12" editorAll="椅子">椅子</typeVale>  
+    <typeVale editor="柜子" editorId="13" editorAll="柜子">柜子</typeVale>  
+    <typeVale editor="床具" editorId="14" editorAll="床具">床具</typeVale>  
+    <typeVale editor="儿童家具" editorId="15" editorAll="儿童家具">儿童家具</typeVale>  
+    <typeVale editor="办公家具" editorId="16" editorAll="办公家具">办公家具</typeVale>  
+    <typeVale editor="灯具" editorId="17" editorAll="灯具">灯具</typeVale>  
+    <typeVale editor="陈设饰品" editorId="18" editorAll="陈设饰品">陈设饰品</typeVale>  
+    <typeVale editor="构件" editorId="19" editorAll="构件">构件</typeVale>  
+    <typeVale editor="厨卫用品" editorId="20" editorAll="厨卫用品">厨卫用品</typeVale>  
+    <typeVale editor="电器" editorId="21" editorAll="电器">电器</typeVale>  
+    <typeVale editor="器材设备" editorId="22" editorAll="器材设备">器材设备</typeVale>  
+    <typeVale editor="人物动物" editorId="23" editorAll="人物动物">人物动物</typeVale>  
+    <typeVale editor="植物" editorId="24" editorAll="植物">植物</typeVale>  
+    <typeVale editor="家装" editorId="25" editorAll="家装">家装</typeVale>  
+    <typeVale editor="工装" editorId="26" editorAll="工装">工装</typeVale>  
+    <typeVale editor="建筑" editorId="27" editorAll="建筑">建筑</typeVale>  
+    <typeVale editor="VR全景" editorId="28" editorAll="VR全景">VR全景</typeVale> 
+  </type>  
+  <type editor="贴图下载分类" editorId="2" editorAll="贴图下载分类"> 
+    <typeVale editor="凹凸黑白贴图" editorId="40" editorAll="凹凸黑白贴图">凹凸黑白贴图</typeVale>  
+    <typeVale editor="壁纸" editorId="41" editorAll="壁纸">壁纸</typeVale>  
+    <typeVale editor="布纹" editorId="42" editorAll="布纹">布纹</typeVale>  
+    <typeVale editor="地毯" editorId="43" editorAll="地毯">地毯</typeVale>  
+    <typeVale editor="肌理 水泥 土地" editorId="44" editorAll="肌理 水泥 土地">肌理 水泥 土地</typeVale>  
+    <typeVale editor="金属" editorId="45" editorAll="金属">金属</typeVale>  
+    <typeVale editor="马赛克" editorId="46" editorAll="马赛克">马赛克</typeVale>  
+    <typeVale editor="雕花" editorId="47" editorAll="雕花">雕花</typeVale>  
+    <typeVale editor="木纹木材" editorId="48" editorAll="木纹木材">木纹木材</typeVale>  
+    <typeVale editor="皮革" editorId="49" editorAll="皮革">皮革</typeVale>  
+    <typeVale editor="其他杂项" editorId="50" editorAll="其他杂项">其他杂项</typeVale>  
+    <typeVale editor="石材" editorId="51" editorAll="石材">石材</typeVale>  
+    <typeVale editor="外景" editorId="52" editorAll="外景">外景</typeVale>  
+    <typeVale editor="屋面瓦材质" editorId="53" editorAll="屋面瓦材质">屋面瓦材质</typeVale>  
+    <typeVale editor="砖墙 石墙" editorId="54" editorAll="砖墙 石墙">砖墙 石墙</typeVale>  
+    <typeVale editor="装饰画" editorId="55" editorAll="装饰画">装饰画</typeVale> 
+  </type>  
+  <type editor="VRAY材质分类" editorId="3" editorAll="VRAY材质分类"/>  
+  <type editor="光域网分类" editorId="4" editorAll="光域网分类"> 
+    <typeVale editor="壁灯" editorId="56" editorAll="壁灯">壁灯</typeVale>  
+    <typeVale editor="工业照明" editorId="57" editorAll="工业照明">工业照明</typeVale>  
+    <typeVale editor="荧光灯" editorId="58" editorAll="荧光灯">荧光灯</typeVale>  
+    <typeVale editor="射灯" editorId="59" editorAll="射灯">射灯</typeVale>  
+    <typeVale editor="室外照明" editorId="60" editorAll="室外照明">室外照明</typeVale>  
+    <typeVale editor="轨道灯" editorId="61" editorAll="轨道灯">轨道灯</typeVale>  
+    <typeVale editor="筒灯" editorId="62" editorAll="筒灯">筒灯</typeVale>  
+    <typeVale editor="其他" editorId="63" editorAll="其他">其他</typeVale> 
+  </type>  
+  <type editor="常用软件分类" editorId="5" editorAll="常用软件分类"> 
+    <typeVale editor="3Dmax" editorId="64" editorAll="3Dmax">3Dmax</typeVale>  
+    <typeVale editor="Flash" editorId="65" editorAll="Flash">Flash</typeVale>  
+    <typeVale editor="AutoCAD" editorId="66" editorAll="AutoCAD">AutoCAD</typeVale>  
+    <typeVale editor="Photoshop" editorId="67" editorAll="Photoshop">Photoshop</typeVale>  
+    <typeVale editor="Vray" editorId="68" editorAll="Vray">Vray</typeVale>  
+    <typeVale editor="SKetchUP" editorId="69" editorAll="SKetchUP">SKetchUP</typeVale>  
+    <typeVale editor="InDesign" editorId="70" editorAll="InDesign">InDesign</typeVale>  
+    <typeVale editor="lllustrator" editorId="71" editorAll="lllustrator">lllustrator</typeVale>  
+    <typeVale editor="模型插件" editorId="72" editorAll="模型插件">模型插件</typeVale>  
+    <typeVale editor="渲染插件" editorId="73" editorAll="渲染插件">渲染插件</typeVale>  
+    <typeVale editor="综合插件" editorId="74" editorAll="综合插件">综合插件</typeVale>  
+    <typeVale editor="其他插件" editorId="75" editorAll="其他插件">其他插件</typeVale> 
+  </type>  
+  <type editor="CAD施工图分类" editorId="6" editorAll="CAD施工图分类"> 
+    <typeVale editor="家装" editorId="76" editorAll="家装">家装</typeVale>  
+    <typeVale editor="工装" editorId="77" editorAll="工装">工装</typeVale>  
+    <typeVale editor="建筑" editorId="78" editorAll="建筑">建筑</typeVale>  
+    <typeVale editor="园林" editorId="79" editorAll="园林">园林</typeVale>  
+    <typeVale editor="CAD图库" editorId="80" editorAll="CAD图库">CAD图库</typeVale>  
+    <typeVale editor="其它" editorId="81" editorAll="其它">其它</typeVale> 
+  </type>  
+  <type editor="图片管理" editorId="7" editorAll="图片管理"> 
+    <typeVale editor="首页logo管理" editorId="8" editorAll="首页logo管理">首页logo管理</typeVale>  
+    <typeVale editor="banner管理" editorId="9" editorAll="banner管理">banner管理</typeVale>  
+    <typeVale editor="会员logo管理" editorId="30" editorAll="会员logo管理">会员logo管理</typeVale>  
+    <typeVale editor="其它页logo管理" editorId="31" editorAll="其它页logo管理">其它页logo管理</typeVale>  
+    <typeVale editor="首页banner下图片" editorId="82" editorAll="首页banner下图片">首页banner下图片</typeVale> 
+  </type>  
+  <type editor="全部模型" editorId="29" editorAll="全部模型"/>  
+  <type editor="风格" editorId="32" editorAll="风格"/>  
+  <type editor="标签" editorId="33" editorAll="标签"/>  
+  <type editor="Max版本" editorId="34" editorAll="Max版本"/>  
+  <type editor="贴图下载" editorId="35" editorAll="贴图下载"/>  
+  <type editor="VRAY材质" editorId="36" editorAll="VRAY材质"/>  
+  <type editor="光域网" editorId="37" editorAll="光域网"/>  
+  <type editor="常用软件" editorId="38" editorAll="常用软件"/>  
+  <type editor="CAD施工图" editorId="39" editorAll="CAD施工图"/>  
+  <type editor="友情链接" editorId="83" editorAll="友情链接"/> 
 </root>

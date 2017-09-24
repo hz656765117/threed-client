@@ -32,7 +32,7 @@ public class ConstantsUI {
     public final static int MAIN_WINDOW_WIDTH = 885;
     public final static int MAIN_WINDOW_HEIGHT = 636;
 
-    public final static float MAIN_WINDOW_WIDTH_PRECENT=0.60f;
+    public final static float MAIN_WINDOW_WIDTH_PRECENT=0.65f;
     public final static float MAIN_WINDOW_HEIFHT_PRECENT=0.65f;
 
 

@@ -1,6 +1,8 @@
 package com.hz.ui.myphoto.Label;
 
 import com.hz.ui.myphoto.constants.MyPhotoConstantsUI;
+import com.hz.ui.myphoto.control.AppControl;
+import com.hz.ui.myphoto.data.PhotoData;
 import com.hz.ui.myphoto.panel.CatalogItemPanel;
 
 import javax.swing.*;
@@ -8,22 +10,27 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.regex.Pattern;
 
 /**
  * Created by hasee on 2017/9/2.
  * 顶级目录标签
  */
 public class CatalogTopLabel extends JLabel implements MouseListener{
-
+	private AppControl appControl=AppControl.instance();
+	  private int cataNum;
+	  
     private boolean isDrop=false;
 
     private CatalogItemPanel father;
 
     public void setFather(CatalogItemPanel father){
         this.father=father;
+        
     }
 
-    public CatalogTopLabel(int _width, String text,CatalogItemPanel father){
+    public CatalogTopLabel(int _width, String text,int cataNum,CatalogItemPanel father){
+        this.cataNum=cataNum;
         this.father=father;
         ImageIcon image = new ImageIcon(MyPhotoConstantsUI.PHOTO_TEST_ARROW1);
         int width=image.getIconWidth();
@@ -34,8 +41,13 @@ public class CatalogTopLabel extends JLabel implements MouseListener{
         this.setForeground(Color.WHITE);
         this.setHorizontalTextPosition(JLabel.LEFT);
         this.setIcon(image);
+        Pattern p = Pattern.compile("[a-zA-z]");
+        if(p.matcher(text).find()){
+            this.setIconTextGap(32);
+        }
         this.addMouseListener(this);
     }
+
 
     public CatalogTopLabel(String text){
         this.setText(text);
@@ -85,7 +97,10 @@ public class CatalogTopLabel extends JLabel implements MouseListener{
         }else{
             this.father.holdAllSubCatalog();
         }
-
+        
+        //加载图片
+        PhotoData.setCatalogId(String.valueOf(cataNum));
+        appControl.update();
     }
 
 

@@ -40,7 +40,6 @@ public class PixelUtil {
 
 
     public static void main(String[] args) {
-        System.out.println(scaleWidth(0.67f));
     }
 
 

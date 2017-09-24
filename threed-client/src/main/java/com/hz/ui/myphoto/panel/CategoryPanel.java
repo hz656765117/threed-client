@@ -5,7 +5,9 @@ import com.hz.ui.myphoto.Label.MypohotoJLabel;
 import com.hz.ui.myphoto.XmlUtil.AnalysisCatalogXml;
 import com.hz.ui.myphoto.bean.CatalogBean;
 import com.hz.ui.myphoto.constants.MyPhotoConstantsUI;
+import com.hz.ui.myphoto.control.AppControl;
 import com.hz.ui.myphoto.layout.VFlowLayout;
+import com.hz.utils.ProjectConfigUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,14 +22,32 @@ public class CategoryPanel extends JPanel {
     private int width;
     private int height;
     private ImageIcon background;
+    private String userName; //用户名
 
-    public CategoryPanel(int _width,int _heigth){
+    private AppControl appControl;
+
+
+
+    public CategoryPanel(int _width, int _heigth, String userName){
+    	this.setUserName(userName);
         this.width=_width;
         this.height=_heigth;
+        loadCatalog();
         addComponent();
         setVisible(true);
     }
 
+    public void loadCatalog(){
+    	 List<String> catalogId=ProjectConfigUtil.getCatalogId(); //得到所有子目录，如果子目录查询失败或者为空，则不修改目录的配置文件
+    	 if(catalogId.size()>0){
+    	    	ProjectConfigUtil.getCatalogForServer("0"); //先加载所有目录
+    	    	for(String id:catalogId){
+    	    		if(!"0".equals(id)){
+    	    			ProjectConfigUtil.getCatalogForServer(id); //再加载子目录
+    	    		}
+    	    	}
+    	 }
+    }
 
     public void addComponent(){
         this.setLocation(MyPhotoConstantsUI.CALALOG_X, MyPhotoConstantsUI.CALALOG_Y);
@@ -36,7 +56,12 @@ public class CategoryPanel extends JPanel {
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 5));
         this.add(loginPanel());
         this.add(catalogPanel());
-        this.add(menuPanel());
+        JPanel menupanel=menuPanel();
+        JScrollPane jScrollPane=new JScrollPane(menupanel);
+        jScrollPane.setPreferredSize(new Dimension(this.width,this.height));
+        jScrollPane.setOpaque(false);
+        jScrollPane.getViewport().setOpaque(false);
+        this.add(jScrollPane);
 
     }
 
@@ -52,7 +77,7 @@ public class CategoryPanel extends JPanel {
         loginpanel.setLayout(new FlowLayout(FlowLayout.LEFT, 10, 0));
         JLabel userLabel=new MypohotoJLabel(60,60,MyPhotoConstantsUI.USER_PIC_PATH);
         loginpanel.add(userLabel);
-        JLabel userName=new MypohotoJLabel("linglilillll",SwingConstants.CENTER,Color.WHITE);
+        JLabel userName=new MypohotoJLabel(this.getUserName(),SwingConstants.CENTER,Color.WHITE);
         loginpanel.add(userName);
 
         return loginpanel;
@@ -76,18 +101,18 @@ public class CategoryPanel extends JPanel {
     private JPanel menuPanel(){
         JPanel menuPanel=new JPanel();
         menuPanel.setOpaque(false);
-        menuPanel.setSize(this.width,this.height);
+        menuPanel.setSize(this.width,this.height*2);
         menuPanel.setLayout(new VFlowLayout());
         CatalogBean catalogBean=AnalysisCatalogXml.analysis();
         final java.util.List<String> catalogTypeList=catalogBean.getCatalogType();
-        final Map<String, java.util.List<String>> map=catalogBean.getMap();
+        final Map<String, java.util.List<String[]>> map=catalogBean.getMap();
+        final Map<String,Integer> cataNum=catalogBean.getCatalogNumMap();
         if(catalogTypeList.size()>0){
             for(String catalogType:catalogTypeList){
-                CatalogItemPanel catalogItemPanel=new CatalogItemPanel(this.width,catalogType,map.get(catalogType));
+                CatalogItemPanel catalogItemPanel=new CatalogItemPanel(this.width,catalogType,cataNum.get(catalogType),map.get(catalogType));
                 catalogItemPanel.setFather(menuPanel);
+                catalogItemPanel.initialization();
                 menuPanel.add(catalogItemPanel);
-//
-
 
             }
         }
@@ -107,4 +132,15 @@ public class CategoryPanel extends JPanel {
         g.drawImage(this.background.getImage(),0,0,this.width,this.height,this);
     }
 
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+    
 }

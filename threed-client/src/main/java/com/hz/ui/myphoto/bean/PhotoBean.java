@@ -11,6 +11,21 @@ public class PhotoBean {
     private String name;
     private String imagePath;
     private String chargeType="免费";
+    private String modelPath;
+    private String jifen;
+    
+    private String photoId;
+    
+    private String imageFilePath;  //下载下来的图片路径
+    private String max3dFilePath; //下载下来的3dmax的路径
+
+    public String getModelPath() {
+        return modelPath;
+    }
+
+    public void setModelPath(String modelPath) {
+        this.modelPath = modelPath;
+    }
 
     public int getImageheight() {
         return imageheight;
@@ -61,4 +76,38 @@ public class PhotoBean {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+	public String getJifen() {
+		return jifen;
+	}
+
+	public void setJifen(String jifen) {
+		this.jifen = jifen;
+	}
+
+	public String getPhotoId() {
+		return photoId;
+	}
+
+	public void setPhotoId(String photoId) {
+		this.photoId = photoId;
+	}
+
+	public String getImageFilePath() {
+		return imageFilePath;
+	}
+
+	public void setImageFilePath(String imageFilePath) {
+		this.imageFilePath = imageFilePath;
+	}
+
+	public String getMax3dFilePath() {
+		return max3dFilePath;
+	}
+
+	public void setMax3dFilePath(String max3dFilePath) {
+		this.max3dFilePath = max3dFilePath;
+	}
+    
+    
 }

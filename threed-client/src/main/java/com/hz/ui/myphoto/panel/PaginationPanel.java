@@ -1,5 +1,8 @@
 package com.hz.ui.myphoto.panel;
 
+import com.hz.ui.myphoto.control.AppControl;
+import com.hz.ui.myphoto.data.PhotoData;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -24,6 +27,11 @@ public class PaginationPanel extends JPanel implements MouseListener{
 
     //按钮 : ...
     private JButton nextBatchButton;
+
+    private JTextField pageField=new JTextField(3);
+
+    //选中页
+    private int selectPage=1;
 
 
     public PaginationPanel(int _width) {
@@ -52,7 +60,7 @@ public class PaginationPanel extends JPanel implements MouseListener{
         JPanel jPanel=new JPanel();
         jPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
         jPanel.add(new JLabel("到第"));
-        jPanel.add(new JTextField(3));
+        jPanel.add(pageField);
         jPanel.add(new JLabel("页"));
         this.add(jPanel);
         JButton button=new JButton("确定");
@@ -94,6 +102,10 @@ public class PaginationPanel extends JPanel implements MouseListener{
         button.setBackground(Color.white);
         buttons.add(button);
 
+        button=new JButton("上一页");
+        button.setBackground(Color.white);
+        buttons.add(button);
+
         button=new JButton("下一页");
         button.setBackground(Color.white);
         buttons.add(button);
@@ -108,32 +120,92 @@ public class PaginationPanel extends JPanel implements MouseListener{
 
     private void updatePageButton(){
         for(int i=0;i<pageNumButton.size();i++){
+            pageNumButton.get(i).setBackground(Color.white);
             pageNumButton.get(i).setText(""+pageNums[i]);
         }
     }
 
 
-    private void nextBatchPage(){
-        int nextPageMaxNum=pageNums[3]+4;
-        if (nextPageMaxNum<totalPageNum){
+    private void nextBatchPage(int step){
+        int nextPageMaxNum=pageNums[3]+step;
+        if (nextPageMaxNum<totalPageNum&&nextPageMaxNum-3>0){
             pageNums=new int[]{nextPageMaxNum-3,nextPageMaxNum-2,nextPageMaxNum-1,nextPageMaxNum};
         }else if(nextPageMaxNum>=totalPageNum){
             pageNums=new int[]{totalPageNum-3,totalPageNum-2,totalPageNum-1,totalPageNum};
         }
+        if(step>1) {
+            selectPage = pageNums[0];
+        }
     }
 
+
+    private void turnPage(int pagenum){
+        if (pagenum>=totalPageNum){
+            pageNums=new int[]{totalPageNum-3,totalPageNum-2,totalPageNum-1,totalPageNum};
+        }else if(pagenum<=4){
+            pageNums=new int[]{1,2,3,4};
+        }
+        else{
+            pageNums=new int[]{pagenum-3,pagenum-2,pagenum-1,pagenum};
+        }
+    }
+
+
+    private void selectButton(int page){
+        if(page<=0){
+            page=0;
+        }else if(page>=totalPageNum){
+            page=totalPageNum;
+        }
+        for(int i=0;i<pageNumButton.size();i++){
+            if (pageNumButton.get(i).getText().equals(""+page)){
+                pageNumButton.get(i).setBackground(Color.red);
+            }
+        }
+    }
 
 
     @Override
     public void mouseClicked(MouseEvent e) {
-       JButton button= (JButton) e.getComponent();
-       String text=button.getText();
-       if(text.equals("...")){
-           nextBatchPage();
-           updatePageButton();
-       }
-       System.out.println("text="+text);
-       this.repaint();
+        JButton button= (JButton) e.getComponent();
+        String text=button.getText();
+        switch (text){
+            case "...":
+                nextBatchPage(4);
+                updatePageButton();
+                break;
+            case "下一页":
+                nextBatchPage(1);
+                updatePageButton();
+                selectPage+=1;
+                break;
+            case "上一页":
+                nextBatchPage(-1);
+                updatePageButton();
+                selectPage-=1;
+                break;
+            case "末页":
+                nextBatchPage(totalPageNum);
+                updatePageButton();
+                selectPage=totalPageNum;
+                break;
+            case "确定":
+                String turnPage=pageField.getText().toString();
+                turnPage(Integer.parseInt(turnPage));
+                updatePageButton();
+                selectPage=Integer.parseInt(turnPage);
+                break;
+            default:
+                //确切的某一页
+                updatePageButton();
+                selectPage=Integer.parseInt(text);
+                break;
+        }
+        selectButton(selectPage);
+        PhotoData.setPage(selectPage);
+        AppControl appControl=AppControl.instance();
+        appControl.update();
+        this.repaint();
 
     }
 

@@ -35,7 +35,6 @@ public class VFlowLayout  extends FlowLayout {
 
     public static void main(String[] args)
     {
-        System.out.println("Just for test ...");
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0, 0, 600, 600);
