@@ -494,5 +494,26 @@ public class FileUtil extends FileUtils {
     	    
     	    return null;
      }
+     
+  // 获取文件目录下的文件
+     public static File getMaxFile(String filePath) {
+ 
+    	 File f = new File(filePath); 
+    	    if(f.isDirectory()){ // 首先判断该路径是否是文件夹，如果不是就自己结束吧，此处省略不是文件夹的情况
+    	         File[] fileList = f.listFiles();// 得到该文件夹下的所有文件和文件夹列表	
+	        	 if(fileList.length>0){
+    	         for(File file:fileList){
+        	        	 String fileName=file.getName();
+        	        	 String prefix=fileName.substring(fileName.lastIndexOf(".")+1);
+        	        	 if("max".equals(prefix)){
+            	        	 return file;
+        	        	 }
+        	         }
+    	         }
+    	         
+    	    }
+    	    
+    	    return null;
+     }
 
 }

@@ -102,7 +102,7 @@ public class PhotoInfoPanel extends JPanel {
         	
         	
         	   dragSource.createDefaultDragGestureRecognizer(modellabel, DnDConstants.ACTION_COPY,
-                       new PhotoDragGestureListener(FileUtil.getFile(photoBean.getModelPath())));
+                       new PhotoDragGestureListener(FileUtil.getMaxFile(photoBean.getModelPath())));
 
         }else{
         	//JOptionPane.showMessageDialog(null,"您没有下载该图片，请下载之后再拖拽图片","错误",JOptionPane.ERROR_MESSAGE);
